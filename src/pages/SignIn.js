@@ -41,6 +41,7 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 
 function SignIn() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -51,7 +52,8 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/signin', formData);
+      //await axios.post('http://localhost:5000/api/auth/signin', formData);
+      await axios.post(`${API_URL}/api/auth/signin`, formData);
       alert('Login successful!');
      // setUser(response.data.user);
       //localStorage.setItem('user',JSON.stringify(response.data.user));
@@ -108,5 +110,6 @@ function SignIn() {
     </Container>
   );
 }
+
 
 export default SignIn;
