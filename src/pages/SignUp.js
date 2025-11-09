@@ -43,6 +43,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../api';
 
 const departments = ['AIML', 'Chemical', 'Data Science', 'Computer', 'Civil', 'Mechanical'];
 const years = ['First Year', 'Second Year', 'Third Year', 'Final Year'];
@@ -64,7 +65,8 @@ function SignUp() {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', formData);
+      //await axios.post('http://localhost:5000/api/auth/signup', formData);
+      await axios.post(`${API_URL}/api/auth/signin`, formData);
       alert('Registration successful! Please sign in.');
       navigate('/signin');
     } catch (err) {
@@ -110,5 +112,6 @@ function SignUp() {
     </Container>
   );
 }
+
 
 export default SignUp;
