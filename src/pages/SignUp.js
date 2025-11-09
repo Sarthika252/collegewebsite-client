@@ -66,7 +66,7 @@ function SignUp() {
 
     try {
       //await axios.post('http://localhost:5000/api/auth/signup', formData);
-      await axios.post(`${API_URL}/api/auth/signin`, formData);
+      await axios.post(`${API_URL}/api/auth/signup`, formData);
       alert('Registration successful! Please sign in.');
       navigate('/signin');
     } catch (err) {
@@ -115,3 +115,4 @@ function SignUp() {
 
 
 export default SignUp;
+
